@@ -4,13 +4,11 @@
 <%= f.submit "generate code" %>
 <% end %>
 
+
 <h3>List of SecretCodes</h3>
 <%@secret_codes.each do|sc|%>
-SecretCode  :<%=sc.secret_code%></br>
-<%if sc.user_id =''%>
-User Email  :TimePass
-<%else%>
-User Email  :<%=sc.user.email%>
-<%end%></br>
+   <%unless sc.user_id==nil%>
+  	 	SecretCode  :<%=sc.secret_code%></br>
+		User Email  :<%=sc.user.email%></br>
+   <%end%>
 <% end %>
-
